@@ -2,8 +2,8 @@
 A shooting game written mainly in vanilla Javascript.
 
 This is the third assignment project I did in 1st year. The objective of this assignment was to examine my JS abilities.
-Grade awarded : 1st Class Honours.
 Link to website : https://cs1.ucc.ie/~cyl1/cgi-bin/ca2/run.py
+Grade awarded : 1st Class Honours
 
 -- A little about the game --
 It is player-controlled, you can move the player with navigation keys.
