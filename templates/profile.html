@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <h1> Profile </h1>
+    <p> Logged in as: {{ g.user }} <br>
+        Easy level high score : €{{ user["easy_highscore"] }} <br>
+        Hard level high score : €{{ user["hard_highscore"] }} <br>
+        <a href="{{ ( url_for('change_password') ) }}"> Change my password</a><br>
+        <a href="{{ ( url_for('logout') ) }}"> Logout</a> </p>     
+    
+    <div class="play"> <a href="{{ url_for('easy') }}"> Play Easy Level </a> <a href="{{ url_for('hard') }}"> Play Hard Level </a> </div>  
+    <h2> Current Leaderboards </h2>
+    <div id="lboard"> 
+        <table>
+            <caption> Easy Level Leaderboard </caption>
+            <th> Ranking</th>
+            <th> User </th>
+            <th> Score </th>
+            {% for u in users_table1 %}     
+            <tr> 
+                <td> {{  rank[loop.index0] }} </td> 
+                <td> {{ u ["username"] }} </td>
+                <td> €{{ u ["easy_highscore"] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <table>
+            <caption> Hard Level Leaderboard </caption>
+            <th> Ranking</th>
+            <th> User </th>
+            <th> Score </th>
+            {% for u in users_table2 %}     
+            <tr> 
+                <td> {{  rank[loop.index0] }} </td> 
+                <td> {{ u ["username"] }} </td>
+                <td> €{{ u ["hard_highscore"] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

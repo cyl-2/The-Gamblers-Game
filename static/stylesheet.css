@@ -1,0 +1,170 @@
+#outer canvas {
+    display: block;
+    margin: 1em auto;
+    /* Scale up pixel art cleanly, got idea from: https://youtu.be/nHaiLWUaWWw*/
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    background-color: #0eb196;
+}
+
+:root {
+    font-size: 16px;
+}
+* {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+.play {
+    margin: 5% 0% 5% 0%;
+    text-align: center;
+}
+
+.play a{
+    margin: 0% 3% 0% 3%;
+    padding: 0.7% 8% 0.7% 8%;
+    background-color: #5dbb69;
+    color: #e3f0ff;
+    font-size: 1.3rem;
+    border:1px solid #56f16b;
+}
+
+.home {
+    margin: 1em auto;
+    padding: 0.7% 8% 0.7% 2%;
+    font-size: 1.5rem;
+    background-color: rgb(0, 6, 59);
+}
+.home a{
+    color: #4ea0fd;
+}
+
+#time {
+    margin: 0% 5% 0% 5%;
+    padding: 1.2% 3% 0% 3%;
+    display: inline-block;
+    border: 1px solid black;
+    font-size: 1.2rem;
+    background-color: #5bd42c;
+    color: black;
+}
+body {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 1.1rem;
+    color: white;
+    width: 85%;
+    margin: 4em auto;
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(66,150,136,1) 100%);
+    background-color: #79e499;
+}
+
+h1 {
+    display: block;
+    text-align: center;
+    font-family: Tahoma, Verdana, sans-serif;
+    letter-spacing: 5px;
+    font-size: 3rem;
+    color:#ee91a5;
+    padding: 0.5em;
+    animation: Border 3s infinite alternate;
+}
+
+h2 {
+    display: block;
+    font-size: 2rem;
+    font-family: Tahoma, Verdana, sans-serif;
+    color: #dba7e9;
+    animation: Border 3s infinite alternate;
+}
+
+footer {
+    bottom: 0;
+    margin: 5em auto;
+    font-size: 0.8rem;
+    background-color: rgb(0, 6, 59);
+}
+
+footer a {
+    color: #4ea0fd;
+}
+.play + p, #outer + p{
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+#time + p{
+    display: block;
+    font-size: 1.5rem;
+    color: #f779d1;
+    text-align: center;
+}
+
+#shift {
+    font-size: 1.3rem;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    line-height: 200px;
+}
+
+table,th,td {
+    margin: 1% 3% 3% 3%;
+    border: 1px solid rgb(22, 4, 190);
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+    background-color: rgb(73, 127, 197);
+}
+table caption {
+    font-size: 1.5rem;
+}
+th,td {
+    text-align: center;
+    padding: 1em;
+}
+th {
+    color: #fd96d2;
+}
+
+#lboard, #s {
+    display: flex;
+}
+
+#s {
+    justify-content: space-between;
+}
+
+img {
+    width : 25px;
+}
+
+@media (hover: hover) {
+    .play a:hover {
+        background-color: #8fdda6;
+    }
+    .home a:hover {
+        background-color: #56b7cf;
+    }
+    a:hover {
+        color: #f796c0;
+    }    
+}
+
+/* https://jsfiddle.net/lmgonzalves/of5a8ub5/3/ */
+#outer{
+    position: relative;
+    display: block;
+}
+
+#result{
+    background-color: rgba(54, 185, 185, 0.418);
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    line-height: 260px;
+    font-size: 2em;
+}

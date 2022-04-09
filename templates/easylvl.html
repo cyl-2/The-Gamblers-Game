@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block scripts %} <script src="{{ url_for('static', filename='easy_level.js') }}" type="module"></script> {% endblock scripts %}
+
+{% block main_content %}
+    <audio id="music" autoplay>
+        <source src="{{ url_for('static', filename='clown.mp3') }}" type="audio/mp3">
+    </audio>
+    {% if g.user %}
+    <div id="s"> 
+        <p id="time">Timer: <span id=timer> 60 </span> seconds remaining <br> Money collected: €<span id=score>0 </span></p>
+        <p> Logged in as: {{ g.user }} <br>
+            High score:  €{{ user["easy_highscore"] }} </p>
+    </div>
+    <div id="outer">
+        <p id=result></p>
+        <p id=shift> </p>
+        <canvas width="512" height="320"></canvas> 
+    </div>
+    <p> Press r to restart game </p> 
+    {% else %}
+        <p id="time">Timer: <span id=timer> 60 </span> seconds remaining <br> Money collected: €<span id=score>0 </span></p> 
+        <p> Do you want to compete against other gamblers in the world? Then sign up for an account! </p>
+        <div id="outer">
+            <p id=result></p>
+            <p id=shift> </p>
+            <canvas width="512" height="320"></canvas> 
+        </div>
+        <p> Press r to restart game ! <br>
+        Not logged in? <a href="{{ ( url_for('login') ) }}"> Login here </a> <br>
+        Don't have an account? </span> <a href="{{ ( url_for('registration') ) }}"> Sign up here </a> </p>
+    {% endif %}
+{% endblock %}

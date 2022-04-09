@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}"/>
+        {% block scripts %} {% endblock scripts %}
+    </head>
+    <body>
+        {% if g.user %}
+        <div class="home"> <a href="{{ url_for('profile') }}"> Home </a> </div>  
+        {% else %}
+        <div class="home"> <a href="{{ url_for('index') }}"> Home </a> </div>  
+        {% endif %}
+        {% block main_content %} {% endblock %}
+    </body>
+    <footer> © All Rights Reserved <br>
+        Chen Yu Lin <br>
+        All images/audio used in this website are sourced from Google. For more information, <a href="{{ url_for('credits') }}">click here</a> </footer>
+</html>

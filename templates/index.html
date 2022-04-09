@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <h1> The Gambler's Game </h1>
+    <h2> Why are you here? </h2>
+        <p> You were previously a joker but you decided to change your career so you went to a casino to become a gambler 
+            and surprisingly, you're kind of good at it. But some annoying birds broke into the casino and 
+            they scared all the other gamblers away. Basically, a bird gang took over the casino.
+            Thankfully for you, when the other gamblers ran away, they left behind some money (because any normal 
+            person would value their life over money) so you decided to give their lonely coins a new home (ie. your pocket). <br>
+            Be careful though...the phoenixes want to ruin your career by killing you and then steal your coins...but <em> you </em> can throw the
+            uno reverse card on them and <em> kill them </em> instead and you can steal <em> their </em> diamonds! </p>
+        
+    <h2> Game Instructions </h2>    
+        <p> 
+            <ol>
+                <li> Collect as many coins as you can in 1 minute. </li>
+                <li> Avoid or kill the phoenixes because if you don't, you won't see tomorrow's dawn.</li>
+                <li> Throw your flashing balls at the birds for some diamonds :)</li>
+            </ol> 
+        </p>
+    <h2> Game controls </h2>
+    <p> Use your keyboard keys to:
+        <ul> 
+            <li>↑ Move up</li>
+            <li>↓ Move down</li>
+            <li>→ Move right</li>
+            <li>← Move left</li>
+            <li> Press <i>"SPACEBAR" </i> to throw balls</li>
+            <li> <b>Hold</b> the <i>"SHIFT"</i> key to move onto tables/chairs/any other object other than the floor.</li>
+        </ul> 
+        <b> Please press one key at a time - pressing 2 or more keys at once may result in...abnormalities.</b>
+    </p>
+    <h2> How much is each item worth? </h2>
+    <p> <ul> 
+            <li> <img src = "../static/gold_coin.png"> Gold coin : +€500</li>
+            <li> <img src = "../static/diamond.png"> Diamond : +€2000 </li>
+            <li> <img src = "../static/moneyBag.png"> Sack of gold : +€1500</li>
+        </ul> 
+    If you collect the sack of gold, you will miraculously move faster for 5 seconds because the weight of the gold provides <em> immense </em> motivation ;)</p>
+    <h2> The difference between easy and hard level</h2>
+    <p> Easy level: Birds are super dumb - they only enter the casino through one window and they all fly in the same path. <br>
+        Hard level: Birds evolved! They're smarter this time and they can enter the casino through any window...they will also CHASE you until you die! </p>
+    <div class="play"> <a href="{{ url_for('easy') }}"> Play Easy Level </a> <a href="{{ url_for('hard') }}"> Play Hard Level </a> </div>
+    
+    <p>Do you have an account? <a href="{{ ( url_for('login') ) }}"> Login here </a> 
+        <br> You don't have an account? <a href="{{ ( url_for('registration') ) }}"> Sign up here </a></p>
+
+    <h2> Current Leaderboards </h2>
+    <div id="lboard"> 
+        <table>
+            <caption> Easy Level Leaderboard </caption>
+            <th> Ranking</th>
+            <th> User </th>
+            <th> Score </th>
+            {% for u in users_table1 %}     
+            <tr> 
+                <td> {{ rank[loop.index0] }} </td> 
+                <td> {{ u["username"] }} </td>
+                <td> €{{ u["easy_highscore"] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <table>
+            <caption> Hard Level Leaderboard </caption>
+            <th> Ranking</th>
+            <th> User </th>
+            <th> Score </th>
+            {% for u in users_table2 %}     
+            <tr> 
+                <td> {{ rank[loop.index0] }} </td> 
+                <td> {{ u["username"] }} </td>
+                <td> €{{ u["hard_highscore"] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
+
